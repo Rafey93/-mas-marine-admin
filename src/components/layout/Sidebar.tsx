@@ -25,8 +25,8 @@ export default function Sidebar() {
           <Anchor className="w-5 h-5 text-white" />
         </div>
         <div>
-          <p className="text-white font-bold text-sm leading-tight uppercase tracking-wide">MAS Marine</p>
-          <p className="text-white/50 text-xs">Academy Admin</p>
+          <p className="text-white font-bold text-sm leading-tight uppercase tracking-wide">Andros Marine</p>
+          <p className="text-white/50 text-xs">Institute Admin</p>
         </div>
       </div>
 
@@ -65,8 +65,8 @@ export default function Sidebar() {
             MA
           </div>
           <div className="min-w-0">
-            <p className="text-white text-xs font-semibold truncate">Maya Admin</p>
-            <p className="text-white/40 text-xs truncate">maya@masfleet.com</p>
+            <p className="text-white text-xs font-semibold truncate">AMI Admin</p>
+            <p className="text-white/40 text-xs truncate">admin@androsmarine.com</p>
           </div>
         </div>
         <button

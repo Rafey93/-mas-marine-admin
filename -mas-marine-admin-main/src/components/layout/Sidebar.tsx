@@ -65,8 +65,8 @@ export default function Sidebar() {
             MA
           </div>
           <div className="min-w-0">
-            <p className="text-white text-xs font-semibold truncate">Maya Admin</p>
-            <p className="text-white/40 text-xs truncate">maya@masfleet.com</p>
+            <p className="text-white text-xs font-semibold truncate">AMI Admin</p>
+            <p className="text-white/40 text-xs truncate">admin@androsmarine.com</p>
           </div>
         </div>
         <button

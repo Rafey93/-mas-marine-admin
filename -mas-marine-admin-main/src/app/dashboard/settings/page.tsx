@@ -15,7 +15,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Display Name</label>
-              <input defaultValue="Maya Admin" className="w-full h-9 px-3 border border-gray-300 text-sm focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal" readOnly />
+              <input defaultValue="AMI Admin" className="w-full h-9 px-3 border border-gray-300 text-sm focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal" readOnly />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Username</label>

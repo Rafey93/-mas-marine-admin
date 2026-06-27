@@ -15,12 +15,12 @@ app.prepare().then(() => {
   createServer((req, res) => {
     if (req.url === '/__health') {
       res.writeHead(200, { 'content-type': 'text/plain' });
-      res.end('MAS Marine real server.js is running');
+      res.end('Andros Marine Institute server.js is running');
       return;
     }
 
     handle(req, res);
   }).listen(port, hostname, () => {
-    console.log(`MAS Marine Admin ready on http://${hostname}:${port}`);
+    console.log(`Andros Marine Institute Admin ready on http://${hostname}:${port}`);
   });
 });

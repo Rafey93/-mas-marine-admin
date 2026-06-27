@@ -4,14 +4,14 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 const students = [
-  ['Ahmed Al-Rashidi', 'ahmed.r@masfleet.com', 'Chief Officer', 'STCW Basic Safety Training', '2025-01-15', 'Active', 82, 85],
-  ['Maria Santos', 'm.santos@masfleet.com', 'Deck Cadet', 'Navigation & Watchkeeping', '2025-01-20', 'Active', 45, 42],
-  ['James Okafor', 'j.okafor@masfleet.com', 'Second Engineer', 'Tanker Safety (Oil)', '2025-02-01', 'Completed', 100, 91],
-  ['Priya Nair', 'p.nair@masfleet.com', 'Third Officer', 'GMDSS Radio Operations', '2025-02-10', 'Active', 67, 73],
-  ['Carlos Mendes', 'c.mendes@masfleet.com', 'Bosun', 'Firefighting & Fire Prevention', '2025-02-14', 'Inactive', 30, 38],
-  ['Yuki Tanaka', 'y.tanaka@masfleet.com', 'Chief Engineer', 'Ship Security Officer', '2025-02-20', 'Completed', 100, 88],
-  ['Grace Obi', 'g.obi@masfleet.com', 'Deck Cadet', 'Navigation & Watchkeeping', '2025-03-15', 'Active', 22, 28],
-  ['Chen Wei', 'c.wei@masfleet.com', 'Second Engineer', 'Firefighting & Fire Prevention', '2025-04-08', 'Completed', 100, 90],
+  ['Ahmed Al-Rashidi', 'ahmed.r@androsmarine.edu', 'Chief Officer', 'STCW Basic Safety Training', '2025-01-15', 'Active', 82, 85],
+  ['Maria Santos', 'm.santos@androsmarine.edu', 'Deck Cadet', 'Navigation & Watchkeeping', '2025-01-20', 'Active', 45, 42],
+  ['James Okafor', 'j.okafor@androsmarine.edu', 'Second Engineer', 'Tanker Safety (Oil)', '2025-02-01', 'Completed', 100, 91],
+  ['Priya Nair', 'p.nair@androsmarine.edu', 'Third Officer', 'GMDSS Radio Operations', '2025-02-10', 'Active', 67, 73],
+  ['Carlos Mendes', 'c.mendes@androsmarine.edu', 'Bosun', 'Firefighting & Fire Prevention', '2025-02-14', 'Inactive', 30, 38],
+  ['Yuki Tanaka', 'y.tanaka@androsmarine.edu', 'Chief Engineer', 'Ship Security Officer', '2025-02-20', 'Completed', 100, 88],
+  ['Grace Obi', 'g.obi@androsmarine.edu', 'Deck Cadet', 'Navigation & Watchkeeping', '2025-03-15', 'Active', 22, 28],
+  ['Chen Wei', 'c.wei@androsmarine.edu', 'Second Engineer', 'Firefighting & Fire Prevention', '2025-04-08', 'Completed', 100, 90],
 ];
 
 const courses = [

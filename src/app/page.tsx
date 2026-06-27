@@ -54,7 +54,7 @@ export default function LoginPage() {
                 <Anchor className="w-9 h-9 text-teal" />
               </div>
               <h1 className="text-xl font-bold text-navy uppercase tracking-widest text-center leading-tight">
-                MAS Marine Academy
+                Andros Marine Institute
               </h1>
               <p className="text-xs text-gray-400 uppercase tracking-wider mt-1">Admin Portal</p>
             </div>
@@ -113,7 +113,7 @@ export default function LoginPage() {
           </div>
         </div>
         <p className="text-center text-xs text-white/40 mt-5 tracking-wide">
-          2025 MAS Marine Academy. All rights reserved.
+          2025 Andros Marine Institute. All rights reserved.
         </p>
       </div>
     </div>

@@ -56,9 +56,9 @@ export default function TopNavbar({ onMenuClick }: Props) {
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
               <div className="w-7 h-7 rounded-full bg-navy flex items-center justify-center text-white text-xs font-bold">
-                MA
+                AI
               </div>
-              <span className="hidden sm:block font-medium">Maya Admin</span>
+              <span className="hidden sm:block font-medium">AMI Admin</span>
               <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
             </button>
           </DropdownMenuTrigger>
