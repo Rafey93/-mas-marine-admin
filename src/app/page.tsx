@@ -113,7 +113,7 @@ export default function LoginPage() {
           </div>
         </div>
         <p className="text-center text-xs text-white/40 mt-5 tracking-wide">
-          2025 Andros Marine Institute. All rights reserved.
+          2026 Andros Software Solutions. All rights reserved.
         </p>
       </div>
     </div>
