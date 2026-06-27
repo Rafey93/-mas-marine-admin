@@ -62,6 +62,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is now set up to run directly on Vercel without depending on the HosterPK Node app runner.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repository to GitHub.
+2. Import the project into Vercel.
+3. In Vercel Project Settings > Environment Variables, add:
+   - DATABASE_URL
+   - AUTH_SECRET
+   - ADMIN_USERNAME
+   - ADMIN_PASSWORD
+   - ADMIN_NAME
+   - NODE_ENV=production
+4. Deploy the project.
+
+Vercel will use the standard Next.js build and start process automatically.
