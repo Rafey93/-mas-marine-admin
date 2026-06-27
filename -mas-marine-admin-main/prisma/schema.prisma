@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql" // (or postgresql, depending on what your app uses)
-  url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = "mysql://amicompk_masuser:$6118114Faran$@s23.hosterpk.com:3306/amicompk_masmarine"
 }
 
 model User {

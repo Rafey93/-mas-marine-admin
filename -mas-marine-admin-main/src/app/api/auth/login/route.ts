@@ -15,30 +15,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid login request.' }, { status: 400 });
   }
 
-  if (!process.env.DATABASE_URL) {
-    const username = process.env.ADMIN_USERNAME || 'maya';
-    const password = process.env.ADMIN_PASSWORD || 'change-this-before-production';
-    if (body.data.username !== username || body.data.password !== password) {
-      return NextResponse.json({ error: 'Invalid username or password.' }, { status: 401 });
-    }
-
-    const token = await createSession({
-      id: 'env-admin',
-      name: process.env.ADMIN_NAME || 'Maya',
-      username,
-      role: 'admin',
-    });
-    const response = NextResponse.json({ ok: true });
-    response.cookies.set(SESSION_COOKIE, token, {
-      httpOnly: true,
-      sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 60 * 60 * 8,
-      path: '/',
-    });
-    return response;
-  }
-
   const user = await prisma.user.findUnique({ where: { username: body.data.username } });
   if (!user || !(await bcrypt.compare(body.data.password, user.passwordHash))) {
     return NextResponse.json({ error: 'Invalid username or password.' }, { status: 401 });
