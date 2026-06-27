@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'MAS Marine Academy — Admin',
-  description: 'Admin panel for MAS Marine Academy eLearning platform',
+  title: 'Andros Marine Institute — Admin',
+  description: 'Admin panel for Andros Marine Institute eLearning platform',
 };
 
 export default function RootLayout({

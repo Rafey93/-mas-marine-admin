@@ -33,7 +33,7 @@ export default function SettingsPage() {
         </div>
         <div className="divide-y divide-gray-50">
           {[
-            { label: 'System Name', value: 'MAS Marine Admin' },
+            { label: 'System Name', value: 'Andros Marine Institute Admin' },
             { label: 'Version', value: '1.0.0' },
             { label: 'Database', value: 'MySQL (s23.hosterpk.com)' },
             { label: 'Environment', value: process.env.NODE_ENV ?? 'production' },

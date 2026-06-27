@@ -39,7 +39,7 @@ function FieldRow({ label, children }: { label: string; children: React.ReactNod
 
 function downloadCertificate(cert: Certificate) {
   const content = `
-MAS MARINE ADMIN — CERTIFICATE OF COMPLETION
+ANDROS MARINE INSTITUTE — CERTIFICATE OF COMPLETION
 =============================================
 Certificate No: ${cert.certificateNo}
 Student Name:   ${cert.studentName}

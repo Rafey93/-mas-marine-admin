@@ -88,7 +88,7 @@ export default function CampaignsClient({ campaigns: initialCampaigns }: { campa
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-800">Training Campaigns</h1>
-          <p className="text-sm text-gray-500 mt-0.5">KnowBe4-style campaign management for maritime crews</p>
+          <p className="text-sm text-gray-500 mt-0.5">Campaign management for Andros Marine Institute crews</p>
         </div>
         <button
           onClick={() => { setNewOpen(true); setError(''); }}

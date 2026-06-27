@@ -1,4 +1,4 @@
--- MAS Marine Admin Database Schema
+-- Andros Marine Institute Database Schema
 -- Run this SQL script to create all tables
 
 -- Users table
