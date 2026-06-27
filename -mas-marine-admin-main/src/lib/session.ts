@@ -12,6 +12,7 @@ export type SessionUser = {
   name: string;
   username: string;
   role: string;
+  allowedPages: string[]; // empty = no access for non-admins; full array for admins
 };
 
 export async function createSession(user: SessionUser) {
@@ -31,6 +32,7 @@ export async function verifySession(token?: string): Promise<SessionUser | null>
       name: String(payload.name),
       username: String(payload.username),
       role: String(payload.role),
+      allowedPages: Array.isArray(payload.allowedPages) ? payload.allowedPages.map(String) : [],
     };
   } catch {
     return null;

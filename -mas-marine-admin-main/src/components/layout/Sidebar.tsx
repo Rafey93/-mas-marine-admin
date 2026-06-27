@@ -6,8 +6,15 @@ import { Anchor, LogOut } from 'lucide-react';
 import { navItems } from '@/lib/navItems';
 import { logout } from '@/lib/auth';
 import { cn } from '@/lib/utils';
+import type { SessionUser } from '@/lib/session';
 
-export default function Sidebar() {
+function pageKeyFromHref(href: string): string {
+  if (href === '/dashboard') return 'dashboard';
+  const match = href.match(/^\/dashboard\/([^/]+)/);
+  return match ? match[1] : '';
+}
+
+export default function Sidebar({ user }: { user: SessionUser }) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -16,6 +23,12 @@ export default function Sidebar() {
     router.push('/');
     router.refresh();
   };
+
+  const visibleItems = user.role === 'admin'
+    ? navItems
+    : navItems.filter(item => user.allowedPages.includes(pageKeyFromHref(item.href)));
+
+  const initials = user.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
 
   return (
     <aside className="hidden lg:flex flex-col w-[240px] min-h-screen bg-navy flex-shrink-0">
@@ -33,7 +46,7 @@ export default function Sidebar() {
       {/* Nav */}
       <nav className="flex-1 py-4 overflow-y-auto sidebar-scroll">
         <ul className="space-y-0.5 px-3">
-          {navItems.map((item) => {
+          {visibleItems.map((item) => {
             const isActive = item.href === '/dashboard'
               ? pathname === '/dashboard'
               : pathname.startsWith(item.href);
@@ -62,11 +75,11 @@ export default function Sidebar() {
       <div className="border-t border-white/10 px-5 py-4">
         <div className="flex items-center gap-3 mb-3">
           <div className="w-8 h-8 rounded-full bg-teal flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-            MA
+            {initials}
           </div>
           <div className="min-w-0">
-            <p className="text-white text-xs font-semibold truncate">AMI Admin</p>
-            <p className="text-white/40 text-xs truncate">admin@androsmarine.com</p>
+            <p className="text-white text-xs font-semibold truncate">{user.name}</p>
+            <p className="text-white/40 text-xs truncate capitalize">{user.role}</p>
           </div>
         </div>
         <button

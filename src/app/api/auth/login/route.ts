@@ -32,6 +32,9 @@ export async function POST(request: Request) {
     name: user.name,
     username: user.username,
     role: user.role,
+    allowedPages: user.role === 'admin'
+      ? ['dashboard','students','courses','certificates','reports','campaigns','risk-score','exam','proctoring','settings']
+      : (() => { try { return JSON.parse(user.allowedPages || '[]'); } catch { return []; } })(),
   });
 
   const response = NextResponse.json({ ok: true });

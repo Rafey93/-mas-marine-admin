@@ -7,13 +7,21 @@ import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { navItems } from '@/lib/navItems';
 import { logout } from '@/lib/auth';
 import { cn } from '@/lib/utils';
+import type { SessionUser } from '@/lib/session';
+
+function pageKeyFromHref(href: string): string {
+  if (href === '/dashboard') return 'dashboard';
+  const match = href.match(/^\/dashboard\/([^/]+)/);
+  return match ? match[1] : '';
+}
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  user: SessionUser;
 }
 
-export default function MobileSidebar({ isOpen, onClose }: Props) {
+export default function MobileSidebar({ isOpen, onClose, user }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -22,6 +30,10 @@ export default function MobileSidebar({ isOpen, onClose }: Props) {
     router.push('/');
     router.refresh();
   };
+
+  const visibleItems = user.role === 'admin'
+    ? navItems
+    : navItems.filter(item => user.allowedPages.includes(pageKeyFromHref(item.href)));
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
@@ -37,7 +49,7 @@ export default function MobileSidebar({ isOpen, onClose }: Props) {
         </div>
         <nav className="flex-1 py-4 overflow-y-auto">
           <ul className="space-y-0.5 px-3">
-            {navItems.map((item) => {
+            {visibleItems.map((item) => {
               const isActive = item.href === '/dashboard'
                 ? pathname === '/dashboard'
                 : pathname.startsWith(item.href);

@@ -4,9 +4,11 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Menu, Bell, ChevronDown, LogOut, User } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { logout } from '@/lib/auth';
+import type { SessionUser } from '@/lib/session';
 
 interface Props {
   onMenuClick: () => void;
+  user: SessionUser;
 }
 
 function getBreadcrumb(pathname: string): string {
@@ -15,7 +17,7 @@ function getBreadcrumb(pathname: string): string {
   return segments.slice(1).map(s => s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, ' ')).join(' / ');
 }
 
-export default function TopNavbar({ onMenuClick }: Props) {
+export default function TopNavbar({ onMenuClick, user }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -25,9 +27,10 @@ export default function TopNavbar({ onMenuClick }: Props) {
     router.refresh();
   };
 
+  const initials = user.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+
   return (
     <header className="h-14 bg-white border-b border-gray-200 flex items-center px-4 gap-4 flex-shrink-0">
-      {/* Hamburger — mobile only */}
       <button
         onClick={onMenuClick}
         className="lg:hidden p-1.5 text-gray-500 hover:text-gray-800 transition-colors"
@@ -36,32 +39,32 @@ export default function TopNavbar({ onMenuClick }: Props) {
         <Menu className="w-5 h-5" />
       </button>
 
-      {/* Breadcrumb */}
       <div className="flex-1">
         <span className="text-sm font-semibold text-gray-700">
           {getBreadcrumb(pathname)}
         </span>
       </div>
 
-      {/* Right actions */}
       <div className="flex items-center gap-2">
-        {/* Notification bell */}
         <button className="relative p-1.5 text-gray-400 hover:text-gray-700 transition-colors" aria-label="Notifications">
           <Bell className="w-5 h-5" />
         </button>
 
-        {/* User menu */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
               <div className="w-7 h-7 rounded-full bg-navy flex items-center justify-center text-white text-xs font-bold">
-                AI
+                {initials}
               </div>
-              <span className="hidden sm:block font-medium">AMI Admin</span>
+              <span className="hidden sm:block font-medium">{user.name}</span>
               <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-44">
+            <div className="px-2 py-1.5 border-b border-gray-100 mb-1">
+              <p className="text-xs font-semibold text-gray-700">{user.name}</p>
+              <p className="text-xs text-gray-400 capitalize">{user.role}</p>
+            </div>
             <DropdownMenuItem className="gap-2 text-sm cursor-pointer">
               <User className="w-4 h-4" /> Profile
             </DropdownMenuItem>
